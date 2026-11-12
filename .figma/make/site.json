@@ -1,0 +1,12 @@
+{
+  "description": "Manage sustainable campus events with online registration, QR code tickets and attendance, digital certificates, and environmental impact analytics for organizers and participants.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  },
+  "title": "nirkertas · E-Ticketing & Manajemen Acara Paperless",
+  "language": "id"
+}
