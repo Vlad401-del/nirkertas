@@ -35,7 +35,7 @@ export function Landing() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)]" aria-hidden />
-        <div className="absolute -top-40 -right-40 size-[520px] rounded-full bg-lime-200/40 blur-3xl" aria-hidden />
+        <div className="absolute -top-40 -right-40 size-[520px] rounded-full bg-lime-200/40 blur-3xl dark:bg-emerald-700/10" aria-hidden />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pt-12 pb-20 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:px-8 lg:pt-20 lg:pb-28">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-200">

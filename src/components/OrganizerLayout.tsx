@@ -12,6 +12,7 @@ import {
   X,
 } from 'lucide-react'
 import { Logo } from './Illustrations'
+import { ThemeToggle } from './ThemeToggle'
 import { cn } from '../lib/cn'
 import { organizer } from '../data'
 
@@ -116,6 +117,7 @@ export function OrganizerLayout({ path, children }: { path: string; children: Re
             Semester Ganjil 2026/2027 · <span className="font-medium text-slate-700 dark:text-slate-200">{organizer.name}</span>
           </p>
           <div className="ml-auto flex items-center gap-2">
+            <ThemeToggle />
             <button type="button" className="relative grid size-10 place-items-center rounded-lg text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-label="Notifikasi, 3 baru">
               <Bell className="size-5" />
               <span className="absolute top-2.5 right-2.5 size-2 rounded-full bg-lime-500 ring-2 ring-white dark:ring-slate-900" />

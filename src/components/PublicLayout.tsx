@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { LayoutDashboard, Leaf, Menu, X } from 'lucide-react'
 import { Logo } from './Illustrations'
+import { ThemeToggle } from './ThemeToggle'
 import { ButtonLink } from './ui'
 import { cn } from '../lib/cn'
 import { currentUser } from '../data'
@@ -25,7 +26,7 @@ export function PublicLayout({ path, children }: { path: string; children: React
           <a href="#/" aria-label="nirkertas, beranda">
             <Logo />
           </a>
-          <nav aria-label="Navigasi utama" className="hidden items-center gap-1 md:flex">
+          <nav aria-label="Navigasi utama" className="hidden items-center gap-1 xl:flex">
             {nav.map((n) => (
               <a
                 key={n.to}
@@ -42,7 +43,9 @@ export function PublicLayout({ path, children }: { path: string; children: React
               </a>
             ))}
           </nav>
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="ml-auto flex items-center gap-2">
+            <ThemeToggle />
+          <div className="hidden items-center gap-3 xl:flex">
             <ButtonLink to="/panel" variant="secondary" size="sm">
               <LayoutDashboard className="size-4" aria-hidden />
               Panel Penyelenggara
@@ -55,16 +58,17 @@ export function PublicLayout({ path, children }: { path: string; children: React
           </div>
           <button
             type="button"
-            className="grid size-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 md:hidden"
+            className="grid size-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 xl:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? 'Tutup menu' : 'Buka menu'}
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
+          </div>
         </div>
         {open && (
-          <nav aria-label="Navigasi seluler" className="border-t border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900 md:hidden">
+          <nav aria-label="Navigasi seluler" className="border-t border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900 xl:hidden">
             {nav.map((n) => (
               <a
                 key={n.to}

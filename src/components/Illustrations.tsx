@@ -15,7 +15,7 @@ export function Logo({ className, inverted }: { className?: string; inverted?: b
   return (
     <span className={cn('inline-flex items-center gap-2.5', className)}>
       <LogoMark className="size-8" />
-      <span className={cn('text-[17px] font-extrabold tracking-tight', inverted ? 'text-white' : 'text-slate-900')}>
+      <span className={cn('text-[17px] font-extrabold tracking-tight', inverted ? 'text-white' : 'text-slate-900 dark:text-slate-100')}>
         nirkertas<span className="text-lime-500">.</span>
       </span>
     </span>

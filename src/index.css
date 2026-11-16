@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: ui-sans-serif, system-ui, sans-serif;
   --shadow-soft: 0 1px 2px rgb(2 44 34 / 0.04), 0 10px 30px -14px rgb(2 44 34 / 0.14);
@@ -30,15 +32,23 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: light dark;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+    --color-slate-950: #111b19;
+    --color-slate-900: #1a2623;
+    --color-slate-800: #25332f;
+    --color-slate-700: #3b4d46;
+    --color-slate-400: #a3b5ac;
+    --color-slate-300: #c2cfc7;
+    --color-slate-200: #d7e1da;
+    --color-slate-100: #e8eee9;
+    --shadow-soft: 0 2px 12px rgb(0 0 0 / 0.12);
+    --shadow-lift: 0 16px 40px rgb(0 0 0 / 0.25);
   }
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
-  }
-  @media (prefers-color-scheme: dark) {
-    body {
-      @apply bg-slate-950 text-slate-100;
-    }
+    @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
   }
   svg.lucide {
     stroke-width: 1.5;
