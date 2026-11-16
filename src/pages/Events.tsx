@@ -28,17 +28,17 @@ export function Events() {
 
   return (
     <div>
-      <section className="border-b border-slate-200/70 bg-white">
+      <section className="border-b border-slate-200/70 bg-white dark:border-slate-700/70 dark:bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <Eyebrow>Jelajahi acara</Eyebrow>
           <div className="mt-3 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Acara kampus semester ini</h1>
-              <p className="mt-2 max-w-xl text-slate-600">
+              <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">Acara kampus semester ini</h1>
+              <p className="mt-2 max-w-xl text-slate-600 dark:text-slate-400">
                 Seminar, workshop, pelatihan, dan webinar dari organisasi mahasiswa. Semua tiket dan sertifikat 100% digital.
               </p>
             </div>
-            <p className="inline-flex items-center gap-2 self-start rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800 lg:self-auto">
+            <p className="inline-flex items-center gap-2 self-start rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 lg:self-auto">
               <Leaf className="size-3.5" aria-hidden /> {events.length} acara paperless tersedia
             </p>
           </div>
@@ -78,7 +78,9 @@ export function Events() {
                   onClick={() => setCat(c)}
                   className={cn(
                     'inline-flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors',
-                    cat === c ? 'bg-emerald-950 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
+                    cat === c
+                      ? 'bg-emerald-950 text-white dark:bg-emerald-600'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700',
                   )}
                 >
                   <Icon className="size-4" aria-hidden />
@@ -91,8 +93,8 @@ export function Events() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <p className="mb-6 text-sm text-slate-500" aria-live="polite">
-          Menampilkan <span className="font-semibold text-slate-800">{list.length}</span> acara
+        <p className="mb-6 text-sm text-slate-500 dark:text-slate-400" aria-live="polite">
+          Menampilkan <span className="font-semibold text-slate-800 dark:text-slate-200">{list.length}</span> acara
         </p>
         {list.length ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -101,10 +103,10 @@ export function Events() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center">
+          <div className="flex flex-col items-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center dark:border-slate-700 dark:bg-slate-900">
             <TicketIllustration className="w-48" />
-            <p className="mt-4 font-semibold text-slate-900">Belum ada acara yang cocok</p>
-            <p className="mt-1 text-sm text-slate-500">Coba kata kunci lain atau hapus filter.</p>
+            <p className="mt-4 font-semibold text-slate-900 dark:text-slate-100">Belum ada acara yang cocok</p>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Coba kata kunci lain atau hapus filter.</p>
             <Button
               variant="secondary"
               className="mt-5"

@@ -57,19 +57,19 @@ function CreateEventPanel({ onClose, onCreate }: { onClose: () => void; onCreate
   return (
     <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-labelledby="create-title">
       <button type="button" className="absolute inset-0 bg-slate-950/40 backdrop-blur-[2px]" onClick={onClose} aria-label="Tutup" />
-      <form onSubmit={submit} className="absolute inset-y-0 right-0 flex w-full max-w-xl flex-col bg-white shadow-2xl">
-        <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4">
+      <form onSubmit={submit} className="absolute inset-y-0 right-0 flex w-full max-w-xl flex-col bg-white shadow-2xl dark:bg-slate-900">
+        <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 dark:border-slate-800">
           <div>
-            <h2 id="create-title" className="text-lg font-semibold text-slate-900">Buat acara baru</h2>
-            <p className="text-sm text-slate-500">Acara disimpan sebagai draf sampai dipublikasikan.</p>
+            <h2 id="create-title" className="text-lg font-semibold text-slate-900 dark:text-slate-100">Buat acara baru</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Acara disimpan sebagai draf sampai dipublikasikan.</p>
           </div>
-          <button type="button" onClick={onClose} className="grid size-9 place-items-center rounded-lg text-slate-500 hover:bg-slate-100" aria-label="Tutup">
+          <button type="button" onClick={onClose} className="grid size-9 place-items-center rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Tutup">
             <X className="size-5" />
           </button>
         </div>
 
         <div className="flex-1 space-y-6 overflow-y-auto px-6 py-6">
-          <button type="button" className="flex w-full flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-8 text-sm text-slate-500 hover:border-emerald-400 hover:bg-emerald-50/50">
+          <button type="button" className="flex w-full flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-8 text-sm text-slate-500 hover:border-emerald-400 hover:bg-emerald-50/50 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-emerald-600 dark:hover:bg-emerald-900/20">
             <ImageIcon className="size-6 text-slate-400" aria-hidden />
             <span className="mt-2 font-medium text-slate-700">Unggah e-poster</span>
             <span className="text-xs">PNG atau JPG, maks. 2 MB, rasio 16:9</span>
@@ -120,8 +120,8 @@ function CreateEventPanel({ onClose, onCreate }: { onClose: () => void; onCreate
             />
           </div>
 
-          <fieldset className="rounded-2xl border border-slate-200 p-4">
-            <legend className="px-1 text-sm font-semibold text-slate-900">Otomatisasi paperless</legend>
+          <fieldset className="rounded-2xl border border-slate-200 p-4 dark:border-slate-700">
+            <legend className="px-1 text-sm font-semibold text-slate-900 dark:text-slate-100">Otomatisasi paperless</legend>
             <div className="space-y-4">
               {[
                 { icon: QrCode, t: 'E-tiket QR Code otomatis', d: 'Dikirim ke email peserta setelah mendaftar', v: qr, s: setQr },
@@ -129,12 +129,12 @@ function CreateEventPanel({ onClose, onCreate }: { onClose: () => void; onCreate
                 { icon: CalendarDays, t: 'Pengingat H-1 via email', d: 'Mengurangi peserta yang tidak hadir', v: reminder, s: setReminder },
               ].map(({ icon: Icon, t, d, v, s }) => (
                 <div key={t} className="flex items-center gap-3">
-                  <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-emerald-50 text-emerald-700">
+                  <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
                     <Icon className="size-[18px]" aria-hidden />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium text-slate-800">{t}</p>
-                    <p className="text-xs text-slate-500">{d}</p>
+                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{d}</p>
                   </div>
                   <Toggle checked={v} onChange={s} label={t} />
                 </div>

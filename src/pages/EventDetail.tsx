@@ -65,28 +65,28 @@ export function EventDetail({ id }: { id: string }) {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_400px] lg:px-8">
         {/* Main */}
         <div className="space-y-8">
-          <Card className="grid gap-px overflow-hidden bg-slate-200/70 sm:grid-cols-3">
+          <Card className="grid gap-px overflow-hidden bg-slate-200/70 dark:bg-slate-700/70 sm:grid-cols-3">
             {[
               { icon: CalendarDays, l: 'Tanggal', v: event.date },
               { icon: Clock, l: 'Waktu', v: event.time },
               { icon: event.mode === 'Daring' ? MonitorPlay : MapPin, l: event.mode === 'Daring' ? 'Platform' : 'Lokasi', v: event.location },
             ].map(({ icon: Icon, l, v }) => (
-              <div key={l} className="flex gap-3 bg-white p-5">
+              <div key={l} className="flex gap-3 bg-white p-5 dark:bg-slate-900">
                 <Icon className="mt-0.5 size-5 shrink-0 text-emerald-600" aria-hidden />
                 <div>
-                  <p className="text-xs text-slate-500">{l}</p>
-                  <p className="mt-0.5 text-sm font-semibold text-slate-900">{v}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{l}</p>
+                  <p className="mt-0.5 text-sm font-semibold text-slate-900 dark:text-slate-100">{v}</p>
                 </div>
               </div>
             ))}
           </Card>
 
           <section>
-            <h2 className="text-lg font-semibold text-slate-900">Tentang acara</h2>
-            <p className="mt-3 leading-relaxed text-slate-600">{event.description}</p>
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Tentang acara</h2>
+            <p className="mt-3 leading-relaxed text-slate-600 dark:text-slate-400">{event.description}</p>
             <ul className="mt-5 flex flex-wrap gap-2">
               {event.benefits.map((b) => (
-                <li key={b} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm text-slate-700 ring-1 ring-slate-200">
+                <li key={b} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm text-slate-700 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
                   <CircleCheck className="size-4 text-emerald-600" aria-hidden /> {b}
                 </li>
               ))}
@@ -94,14 +94,14 @@ export function EventDetail({ id }: { id: string }) {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-slate-900">Pembicara</h2>
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Pembicara</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {event.speakers.map((s) => (
                 <Card key={s.name} className="flex items-center gap-3 p-4">
                   <Avatar name={s.name.replace(/^(Dr\.|Prof\.|Drs\.)\s*(Dr\.)?\s*(Ir\.)?\s*/, '')} className="size-11" />
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-slate-900">{s.name}</p>
-                    <p className="truncate text-xs text-slate-500">{s.role}</p>
+                    <p className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100">{s.name}</p>
+                    <p className="truncate text-xs text-slate-500 dark:text-slate-400">{s.role}</p>
                   </div>
                 </Card>
               ))}
@@ -109,27 +109,27 @@ export function EventDetail({ id }: { id: string }) {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-slate-900">Rundown</h2>
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Rundown</h2>
             <Card className="mt-4 p-2">
               <ol>
                 {event.agenda.map((a, i) => (
-                  <li key={i} className="flex gap-4 rounded-xl px-4 py-3 odd:bg-slate-50/70">
-                    <span className="w-14 shrink-0 font-mono text-sm font-semibold text-emerald-700">{a.time}</span>
-                    <span className="text-sm text-slate-700">{a.title}</span>
+                  <li key={i} className="flex gap-4 rounded-xl px-4 py-3 odd:bg-slate-50/70 dark:odd:bg-slate-800/50">
+                    <span className="w-14 shrink-0 font-mono text-sm font-semibold text-emerald-700 dark:text-emerald-400">{a.time}</span>
+                    <span className="text-sm text-slate-700 dark:text-slate-300">{a.title}</span>
                   </li>
                 ))}
               </ol>
             </Card>
           </section>
 
-          <section className="rounded-2xl bg-emerald-50 p-6 ring-1 ring-emerald-100">
+          <section className="rounded-2xl bg-emerald-50 p-6 ring-1 ring-emerald-100 dark:bg-emerald-900/30 dark:ring-emerald-800/40">
             <div className="flex gap-4">
-              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white text-emerald-700 ring-1 ring-emerald-100">
+              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white text-emerald-700 ring-1 ring-emerald-100 dark:bg-emerald-900 dark:ring-emerald-700">
                 <Leaf className="size-5" aria-hidden />
               </span>
               <div>
-                <h2 className="font-semibold text-emerald-950">Komitmen acara tanpa kertas</h2>
-                <p className="mt-1 text-sm leading-relaxed text-emerald-900/80">
+                <h2 className="font-semibold text-emerald-950 dark:text-emerald-200">Komitmen acara tanpa kertas</h2>
+                <p className="mt-1 text-sm leading-relaxed text-emerald-900/80 dark:text-emerald-300/80">
                   Tiket, presensi, materi, dan sertifikat acara ini sepenuhnya digital. Dengan {nf.format(event.quota)} kuota peserta,
                   acara ini berpotensi menghemat ± {nf.format(event.quota * 3)} lembar kertas.
                 </p>
@@ -146,13 +146,13 @@ export function EventDetail({ id }: { id: string }) {
                 <span className="mx-auto grid size-14 place-items-center rounded-full bg-emerald-100 text-emerald-700">
                   <CircleCheck className="size-7" aria-hidden />
                 </span>
-                <h2 className="mt-4 text-lg font-semibold text-slate-900">Pendaftaran berhasil</h2>
-                <p className="mt-1.5 text-sm text-slate-500">
-                  E-tiket dengan QR Code sudah dikirim ke <span className="font-medium text-slate-700">{currentUser.email}</span> dan tersimpan di akunmu.
+                <h2 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100">Pendaftaran berhasil</h2>
+                <p className="mt-1.5 text-sm text-slate-500 dark:text-slate-400">
+                  E-tiket dengan QR Code sudah dikirim ke <span className="font-medium text-slate-700 dark:text-slate-300">{currentUser.email}</span> dan tersimpan di akunmu.
                 </p>
-                <div className="mt-5 rounded-xl bg-slate-50 p-4 text-left text-sm">
-                  <p className="text-xs text-slate-500">Kode tiket</p>
-                  <p className="font-mono font-semibold text-slate-900">NKT-{event.id.slice(0, 4).toUpperCase()}-{String(event.registered + 1).padStart(4, '0')}</p>
+                <div className="mt-5 rounded-xl bg-slate-50 p-4 text-left text-sm dark:bg-slate-800">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Kode tiket</p>
+                  <p className="font-mono font-semibold text-slate-900 dark:text-slate-100">NKT-{event.id.slice(0, 4).toUpperCase()}-{String(event.registered + 1).padStart(4, '0')}</p>
                 </div>
                 <ButtonLink to="/tiket" className="mt-5 w-full">
                   <Ticket className="size-4" aria-hidden /> Lihat E-Tiket
@@ -164,7 +164,7 @@ export function EventDetail({ id }: { id: string }) {
             ) : (
               <>
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-slate-900">Daftar acara</h2>
+                  <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Daftar acara</h2>
                   <Badge tone={full ? 'amber' : 'emerald'}>{full ? 'Kuota penuh' : 'Gratis'}</Badge>
                 </div>
                 <div className="mt-4">
@@ -204,7 +204,7 @@ export function EventDetail({ id }: { id: string }) {
                     <Label htmlFor="prodi">Program studi</Label>
                     <Input id="prodi" defaultValue={currentUser.prodi} required />
                   </div>
-                  <label className="flex items-start gap-3 text-sm text-slate-600">
+                  <label className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400">
                     <input
                       type="checkbox"
                       checked={agree}

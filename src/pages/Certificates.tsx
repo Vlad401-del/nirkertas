@@ -29,22 +29,22 @@ export function Certificates() {
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1.15fr]">
         {/* History list */}
         <Card className="overflow-hidden">
-          <div className="border-b border-slate-100 px-5 py-4">
-            <h2 className="font-semibold text-slate-900">Riwayat acara</h2>
+          <div className="border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Riwayat acara</h2>
           </div>
-          <ul className="divide-y divide-slate-100">
+          <ul className="divide-y divide-slate-100 dark:divide-slate-800">
             {pastEvents.map((p) => {
               const ok = p.certificate === 'Tersedia'
               return (
-                <li key={p.id} className={cn('p-5 transition-colors', selected === p.id && 'bg-emerald-50/50')}>
+                <li key={p.id} className={cn('p-5 transition-colors', selected === p.id && 'bg-emerald-50/50 dark:bg-emerald-900/20')}>
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
                         <CategoryBadge category={p.category} />
-                        <span className="text-xs text-slate-500">{p.date}</span>
+                        <span className="text-xs text-slate-500 dark:text-slate-400">{p.date}</span>
                       </div>
-                      <p className="mt-2 text-sm leading-snug font-semibold text-slate-900">{p.title}</p>
-                      <p className="mt-0.5 text-xs text-slate-500">
+                      <p className="mt-2 text-sm leading-snug font-semibold text-slate-900 dark:text-slate-100">{p.title}</p>
+                      <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
                         {p.organizer} · {p.hours} jam
                       </p>
                     </div>
@@ -82,7 +82,7 @@ export function Certificates() {
 
         {/* Certificate preview */}
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-3xl bg-gradient-to-br from-emerald-100 via-white to-lime-50 p-3 shadow-lift ring-1 ring-slate-200/80 sm:p-5">
+          <div className="rounded-3xl bg-gradient-to-br from-emerald-100 via-white to-lime-50 p-3 shadow-lift ring-1 ring-slate-200/80 dark:from-emerald-900/40 dark:via-slate-800 dark:to-slate-800 dark:ring-slate-700/80 sm:p-5">
             <article
               aria-label={`Pratinjau e-sertifikat ${cert.title}`}
               className="relative aspect-[1.414/1] overflow-hidden rounded-xl bg-white ring-1 ring-emerald-200"
@@ -134,7 +134,7 @@ export function Certificates() {
               <Link2 className="size-4" aria-hidden /> Salin tautan verifikasi
             </Button>
           </div>
-          <p className="mt-3 flex items-center gap-2 text-xs text-slate-500">
+          <p className="mt-3 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
             <ShieldCheck className="size-4 text-emerald-600" aria-hidden />
             Keaslian dapat dicek siapa saja dengan memindai QR Code pada sertifikat.
           </p>

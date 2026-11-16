@@ -45,14 +45,16 @@ export function MyTicket() {
                     aria-selected={active}
                     onClick={() => setSelected(t.code)}
                     className={cn(
-                      'flex w-full items-center gap-3 rounded-2xl border bg-white p-3 text-left transition',
-                      active ? 'border-emerald-500 ring-4 ring-emerald-500/10' : 'border-slate-200 hover:border-slate-300',
+                      'flex w-full items-center gap-3 rounded-2xl border bg-white p-3 text-left transition dark:bg-slate-900',
+                      active
+                        ? 'border-emerald-500 ring-4 ring-emerald-500/10'
+                        : 'border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600',
                     )}
                   >
                     <img src={img(e.image, 200)} alt="" className="size-14 shrink-0 rounded-xl object-cover" />
                     <div className="min-w-0">
-                      <p className="line-clamp-2 text-sm leading-snug font-semibold text-slate-900">{e.title}</p>
-                      <p className="mt-1 text-xs text-slate-500">
+                      <p className="line-clamp-2 text-sm leading-snug font-semibold text-slate-900 dark:text-slate-100">{e.title}</p>
+                      <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                         {e.day} {e.month} · {e.mode}
                       </p>
                     </div>
@@ -61,11 +63,11 @@ export function MyTicket() {
               )
             })}
           </ul>
-          <div className="mt-6 rounded-2xl bg-emerald-50 p-4 ring-1 ring-emerald-100">
-            <p className="flex items-center gap-2 text-sm font-semibold text-emerald-900">
+          <div className="mt-6 rounded-2xl bg-emerald-50 p-4 ring-1 ring-emerald-100 dark:bg-emerald-900/30 dark:ring-emerald-800/40">
+            <p className="flex items-center gap-2 text-sm font-semibold text-emerald-900 dark:text-emerald-200">
               <Leaf className="size-4" aria-hidden /> Kontribusimu
             </p>
-            <p className="mt-1 text-sm text-emerald-900/75">
+            <p className="mt-1 text-sm text-emerald-900/75 dark:text-emerald-300/80">
               3 e-tiket ini menggantikan 3 lembar tiket cetak, setara ± 13,8 g CO2e yang tidak diemisikan.
             </p>
           </div>
@@ -73,7 +75,7 @@ export function MyTicket() {
 
         {/* Ticket */}
         <div className="grid gap-6 xl:grid-cols-[1fr_280px]">
-          <div className="overflow-hidden rounded-3xl bg-white shadow-lift ring-1 ring-slate-200/80">
+          <div className="overflow-hidden rounded-3xl bg-white shadow-lift ring-1 ring-slate-200/80 dark:bg-slate-900 dark:ring-slate-700/80">
             <div className="relative bg-emerald-950 p-6 text-white sm:p-8">
               <img src={img(event.image, 1080)} alt="" className="absolute inset-0 size-full object-cover opacity-25" />
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-950/85 to-teal-900/70" />
@@ -98,16 +100,16 @@ export function MyTicket() {
                   { icon: Info, l: 'Tempat duduk', v: ticket.seat },
                 ].map(({ icon: Icon, l, v }) => (
                   <div key={l}>
-                    <dt className="flex items-center gap-1.5 text-xs text-slate-500">
+                    <dt className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                       <Icon className="size-3.5" aria-hidden /> {l}
                     </dt>
-                    <dd className="mt-1 font-semibold text-slate-900">{v}</dd>
+                    <dd className="mt-1 font-semibold text-slate-900 dark:text-slate-100">{v}</dd>
                   </div>
                 ))}
-                <div className="col-span-2 border-t border-slate-100 pt-5">
-                  <dt className="text-xs text-slate-500">Nama peserta</dt>
-                  <dd className="mt-1 font-semibold text-slate-900">{currentUser.name}</dd>
-                  <dd className="text-xs text-slate-500">
+                <div className="col-span-2 border-t border-slate-100 dark:border-slate-800 pt-5">
+                  <dt className="text-xs text-slate-500 dark:text-slate-400">Nama peserta</dt>
+                  <dd className="mt-1 font-semibold text-slate-900 dark:text-slate-100">{currentUser.name}</dd>
+                  <dd className="text-xs text-slate-500 dark:text-slate-400">
                     {currentUser.nim} · {currentUser.prodi}
                   </dd>
                 </div>
@@ -125,13 +127,13 @@ export function MyTicket() {
             </div>
 
             <div className="flex flex-col items-center gap-6 p-6 sm:flex-row sm:p-8">
-              <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200">
+              <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
                 <QRCode value={ticket.code} className="size-44 sm:size-48" label={`QR Code tiket ${ticket.code}`} />
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-xs text-slate-500">Kode tiket</p>
-                <p className="font-mono text-xl font-bold tracking-wider text-slate-900">{ticket.code}</p>
-                <p className="mt-1 text-xs text-slate-500">Diterbitkan {ticket.issuedAt}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Kode tiket</p>
+                <p className="font-mono text-xl font-bold tracking-wider text-slate-900 dark:text-slate-100">{ticket.code}</p>
+                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Diterbitkan {ticket.issuedAt}</p>
                 <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1.5 text-xs font-medium text-amber-800">
                   <Sun className="size-3.5" aria-hidden /> Naikkan kecerahan layar saat dipindai
                 </p>

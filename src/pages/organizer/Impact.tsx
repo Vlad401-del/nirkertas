@@ -111,17 +111,17 @@ export function Impact() {
         <Card className="p-5 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <h2 className="font-semibold text-slate-900">Estimasi emisi CO2e: sebelum vs sesudah digitalisasi</h2>
-              <p className="text-sm text-slate-500">kg CO2e per bulan, seluruh acara</p>
+              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Estimasi emisi CO2e: sebelum vs sesudah digitalisasi</h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400">kg CO2e per bulan, seluruh acara</p>
             </div>
             <div className="flex gap-6 text-right">
               <div>
-                <p className="text-xs text-slate-500">Konvensional</p>
-                <p className="font-bold text-slate-700">{nf1.format(impact.co2Conventional)} kg</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Konvensional</p>
+                <p className="font-bold text-slate-700 dark:text-slate-300">{nf1.format(impact.co2Conventional)} kg</p>
               </div>
               <div>
-                <p className="text-xs text-slate-500">Paperless</p>
-                <p className="font-bold text-emerald-700">{nf1.format(impact.co2Digital)} kg</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Paperless</p>
+                <p className="font-bold text-emerald-700 dark:text-emerald-400">{nf1.format(impact.co2Digital)} kg</p>
               </div>
             </div>
           </div>
@@ -141,25 +141,25 @@ export function Impact() {
         </Card>
 
         <Card className="p-5 sm:p-6">
-          <h2 className="font-semibold text-slate-900">Penghematan per jenis dokumen</h2>
-          <p className="text-sm text-slate-500">Lembar kertas yang tidak dicetak</p>
+          <h2 className="font-semibold text-slate-900 dark:text-slate-100">Penghematan per jenis dokumen</h2>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Lembar kertas yang tidak dicetak</p>
           <ul className="mt-6 space-y-5">
             {categorySavings.map((c) => (
               <li key={c.name}>
                 <div className="flex items-baseline justify-between gap-2 text-sm">
-                  <span className="font-medium text-slate-800">{c.name}</span>
-                  <span className="text-slate-500">
-                    <span className="font-semibold text-slate-900">{nf.format(c.sheets)}</span> lbr · {nf1.format(c.co2)} kg CO2e
+                  <span className="font-medium text-slate-800 dark:text-slate-200">{c.name}</span>
+                  <span className="text-slate-500 dark:text-slate-400">
+                    <span className="font-semibold text-slate-900 dark:text-slate-100">{nf.format(c.sheets)}</span> lbr · {nf1.format(c.co2)} kg CO2e
                   </span>
                 </div>
-                <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-100">
+                <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
                   <div className="h-full rounded-full" style={{ width: `${(c.sheets / maxSheets) * 100}%`, background: c.color }} />
                 </div>
               </li>
             ))}
           </ul>
-          <p className="mt-6 rounded-xl bg-slate-50 p-3 text-xs text-slate-500">
-            Tiket cetak dan sertifikat menyumbang <b className="text-slate-700">63%</b> dari total penghematan kertas.
+          <p className="mt-6 rounded-xl bg-slate-50 p-3 text-xs text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+            Tiket cetak dan sertifikat menyumbang <b className="text-slate-700 dark:text-slate-300">63%</b> dari total penghematan kertas.
           </p>
         </Card>
       </div>
@@ -167,8 +167,8 @@ export function Impact() {
       {/* Category chart + ops footprint */}
       <div className="grid gap-6 xl:grid-cols-[1.5fr_1fr]">
         <Card className="p-5 sm:p-6">
-          <h2 className="font-semibold text-slate-900">Emisi yang dihindari per kategori</h2>
-          <p className="text-sm text-slate-500">kg CO2e: tiket, daftar hadir, sertifikat, poster, dan name tag</p>
+          <h2 className="font-semibold text-slate-900 dark:text-slate-100">Emisi yang dihindari per kategori</h2>
+          <p className="text-sm text-slate-500 dark:text-slate-400">kg CO2e: tiket, daftar hadir, sertifikat, poster, dan name tag</p>
           <div className="mt-6 h-64">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={categorySavings} layout="vertical" margin={{ left: 8, right: 24 }}>
@@ -189,8 +189,8 @@ export function Impact() {
         <Card className="p-5 sm:p-6">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h2 className="font-semibold text-slate-900">Jejak karbon operasional sistem</h2>
-              <p className="text-sm text-slate-500">Digital juga beremisi, dan kami menghitungnya</p>
+              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Jejak karbon operasional sistem</h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Digital juga beremisi, dan kami menghitungnya</p>
             </div>
             <Cloud className="size-5 text-slate-400" aria-hidden />
           </div>
@@ -207,23 +207,23 @@ export function Impact() {
             </ResponsiveContainer>
             <div className="pointer-events-none absolute inset-0 grid place-items-center text-center">
               <div>
-                <p className="text-xl font-bold text-slate-900">{nf1.format(impact.co2Ops)}</p>
-                <p className="text-[11px] text-slate-500">kg CO2e/tahun</p>
+                <p className="text-xl font-bold text-slate-900 dark:text-slate-100">{nf1.format(impact.co2Ops)}</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">kg CO2e/tahun</p>
               </div>
             </div>
           </div>
           <ul className="mt-4 space-y-2">
             {opsFootprint.map((o) => (
               <li key={o.name} className="flex items-center justify-between text-sm">
-                <span className="flex items-center gap-2 text-slate-600">
+                <span className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                   <span className="size-2.5 rounded-full" style={{ background: o.color }} /> {o.name}
                 </span>
-                <span className="font-semibold text-slate-900">{nf1.format(o.value)} kg</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-100">{nf1.format(o.value)} kg</span>
               </li>
             ))}
-            <li className="flex items-center justify-between border-t border-slate-100 pt-2 text-sm">
-              <span className="text-slate-600">Dokumen digital (0,3 g/dok)</span>
-              <span className="font-semibold text-slate-900">{nf1.format(impact.co2Digital - impact.co2Ops)} kg</span>
+            <li className="flex items-center justify-between border-t border-slate-100 pt-2 text-sm dark:border-slate-800">
+              <span className="text-slate-600 dark:text-slate-400">Dokumen digital (0,3 g/dok)</span>
+              <span className="font-semibold text-slate-900 dark:text-slate-100">{nf1.format(impact.co2Digital - impact.co2Ops)} kg</span>
             </li>
           </ul>
         </Card>
@@ -233,14 +233,14 @@ export function Impact() {
       <Card className="overflow-hidden">
         <div className="flex flex-col gap-2 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div>
-            <h2 className="font-semibold text-slate-900">Perbandingan proses konvensional vs paperless</h2>
-            <p className="text-sm text-slate-500">Dampak per tahapan administrasi acara</p>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Perbandingan proses konvensional vs paperless</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Dampak per tahapan administrasi acara</p>
           </div>
           <Badge tone="emerald">Rata-rata 15× lebih cepat saat presensi</Badge>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[720px] text-left text-sm">
-            <thead className="border-y border-slate-100 bg-slate-50 text-xs font-semibold tracking-wide text-slate-500 uppercase">
+            <thead className="border-y border-slate-100 bg-slate-50 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-400">
               <tr>
                 <th scope="col" className="px-6 py-3">Tahapan</th>
                 <th scope="col" className="px-6 py-3">Konvensional</th>
@@ -248,12 +248,12 @@ export function Impact() {
                 <th scope="col" className="px-6 py-3 text-right">Efisiensi</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {processComparison.map((r) => (
                 <tr key={r.step}>
-                  <th scope="row" className="px-6 py-4 font-semibold text-slate-900">{r.step}</th>
-                  <td className="px-6 py-4 text-slate-500">{r.conventional}</td>
-                  <td className="px-6 py-4 text-slate-800">{r.paperless}</td>
+                  <th scope="row" className="px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">{r.step}</th>
+                  <td className="px-6 py-4 text-slate-500 dark:text-slate-400">{r.conventional}</td>
+                  <td className="px-6 py-4 text-slate-800 dark:text-slate-200">{r.paperless}</td>
                   <td className="px-6 py-4 text-right">
                     <Badge tone="lime">{r.gain}</Badge>
                   </td>
@@ -265,10 +265,10 @@ export function Impact() {
       </Card>
 
       {/* Methodology */}
-      <div className="flex gap-4 rounded-2xl bg-white p-5 ring-1 ring-slate-200/80">
+      <div className="flex gap-4 rounded-2xl bg-white p-5 ring-1 ring-slate-200/80 dark:bg-slate-900 dark:ring-slate-700/80">
         <Info className="mt-0.5 size-5 shrink-0 text-emerald-600" aria-hidden />
-        <div className="text-sm text-slate-600">
-          <p className="font-semibold text-slate-900">Asumsi perhitungan</p>
+        <div className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="font-semibold text-slate-900 dark:text-slate-100">Asumsi perhitungan</p>
           <p className="mt-1 leading-relaxed">
             1 lembar A4 80 gsm ≈ 5 g kertas dan ≈ 4,6 g CO2e (produksi dan pencetakan). 1 dokumen digital ≈ 0,3 g CO2e
             (pengiriman dan penyimpanan). 1 pohon ≈ 8.333 lembar; ± 10 L air per lembar. Poster dihitung setara A4. Angka bersifat

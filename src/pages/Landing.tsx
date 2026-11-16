@@ -42,10 +42,10 @@ export function Landing() {
               <Sparkles className="size-3.5 text-lime-600" aria-hidden />
               Platform acara kampus tanpa kertas
             </span>
-            <h1 className="mt-6 text-4xl leading-[1.08] font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-[58px]">
+            <h1 className="mt-6 text-4xl leading-[1.08] font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-[58px]">
               Acara kampus yang rapi, <span className="text-emerald-600">tanpa selembar kertas.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
               Kelola pendaftaran, e-tiket QR Code, presensi digital, dan e-sertifikat dalam satu alur. Setiap acara
               sekaligus menghitung kertas dan emisi CO2e yang berhasil dihemat.
             </p>
@@ -57,7 +57,7 @@ export function Landing() {
                 Mulai sebagai Penyelenggara
               </ButtonLink>
             </div>
-            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-slate-200 pt-6">
+            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-slate-200 dark:border-slate-700 pt-6">
               {[
                 ['120+', 'organisasi mahasiswa'],
                 [nf.format(impact.totalParticipants), 'peserta terdaftar'],
@@ -65,8 +65,8 @@ export function Landing() {
               ].map(([v, l]) => (
                 <div key={l}>
                   <dt className="sr-only">{l}</dt>
-                  <dd className="text-2xl font-bold tracking-tight text-slate-900">{v}</dd>
-                  <dd className="mt-0.5 text-xs leading-snug text-slate-500">{l}</dd>
+                  <dd className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">{v}</dd>
+                  <dd className="mt-0.5 text-xs leading-snug text-slate-500 dark:text-slate-400">{l}</dd>
                 </div>
               ))}
             </dl>
@@ -124,10 +124,10 @@ export function Landing() {
       </section>
 
       {/* Org strip */}
-      <section className="border-y border-slate-200/70 bg-white">
+      <section className="border-y border-slate-200/70 bg-white dark:border-slate-700/70 dark:bg-slate-900">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-6 sm:px-6 md:flex-row md:justify-between lg:px-8">
           <p className="text-xs font-semibold tracking-wider text-slate-400 uppercase">Digunakan oleh</p>
-          <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-semibold text-slate-400">
+          <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-semibold text-slate-400 dark:text-slate-500">
             {['BEM Universitas', 'HIMA Sistem Informasi', 'KSM Eco Ranger', 'UKM Pecinta Alam', 'LPPM', 'HIMA Manajemen'].map((o) => (
               <li key={o}>{o}</li>
             ))}
@@ -139,8 +139,8 @@ export function Landing() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="max-w-2xl">
           <Eyebrow>Alur paperless</Eyebrow>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Satu alur digital, dari pendaftaran sampai sertifikat.</h2>
-          <p className="mt-4 text-slate-600">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">Satu alur digital, dari pendaftaran sampai sertifikat.</h2>
+          <p className="mt-4 text-slate-600 dark:text-slate-400">
             Setiap tahap yang dulu membutuhkan kertas kini berjalan otomatis, sehingga panitia bisa fokus pada isi acara.
           </p>
         </div>
@@ -149,13 +149,13 @@ export function Landing() {
             <li key={title} className="relative">
               <Card className="h-full p-5">
                 <div className="flex items-center justify-between">
-                  <span className="grid size-11 place-items-center rounded-xl bg-emerald-50 text-emerald-700">
+                  <span className="grid size-11 place-items-center rounded-xl bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
                     <Icon className="size-5" aria-hidden />
                   </span>
-                  <span className="text-xs font-bold text-slate-300">0{i + 1}</span>
+                  <span className="text-xs font-bold text-slate-300 dark:text-slate-600">0{i + 1}</span>
                 </div>
-                <h3 className="mt-5 font-semibold text-slate-900">{title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{text}</p>
+                <h3 className="mt-5 font-semibold text-slate-900 dark:text-slate-100">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{text}</p>
               </Card>
             </li>
           ))}
@@ -170,7 +170,7 @@ export function Landing() {
               <Badge tone="teal">
                 <Users className="size-3.5" aria-hidden /> Untuk peserta
               </Badge>
-              <h3 className="mt-4 text-2xl font-bold tracking-tight text-slate-900">Daftar sekali klik, semua tersimpan di akunmu.</h3>
+              <h3 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Daftar sekali klik, semua tersimpan di akunmu.</h3>
               <ul className="mt-6 space-y-3">
                 {[
                   'Pendaftaran online acara kampus dengan NIM',
@@ -178,7 +178,7 @@ export function Landing() {
                   'Riwayat acara yang pernah diikuti',
                   'Unduh e-sertifikat terverifikasi setelah acara',
                 ].map((t) => (
-                  <li key={t} className="flex gap-3 text-sm text-slate-700">
+                  <li key={t} className="flex gap-3 text-sm text-slate-700 dark:text-slate-300">
                     <CircleCheck className="mt-0.5 size-[18px] shrink-0 text-emerald-600" aria-hidden /> {t}
                   </li>
                 ))}
@@ -253,7 +253,7 @@ export function Landing() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <Eyebrow>Segera hadir</Eyebrow>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">Acara kampus terdekat</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Acara kampus terdekat</h2>
           </div>
           <ButtonLink to="/acara" variant="secondary">
             Semua acara <ArrowRight className="size-4" aria-hidden />

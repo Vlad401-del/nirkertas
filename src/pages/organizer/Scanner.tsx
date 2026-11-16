@@ -123,49 +123,49 @@ export function Scanner() {
           <div aria-live="polite">
             {!result && (
               <Card className="p-6 text-center">
-                <span className="mx-auto grid size-12 place-items-center rounded-full bg-slate-100 text-slate-500">
+                <span className="mx-auto grid size-12 place-items-center rounded-full bg-slate-100 text-slate-500 dark:bg-slate-800">
                   <ScanLine className="size-6" aria-hidden />
                 </span>
-                <p className="mt-3 font-semibold text-slate-900">Menunggu pemindaian</p>
-                <p className="mt-1 text-sm text-slate-500">Hasil validasi tiket akan muncul di sini.</p>
+                <p className="mt-3 font-semibold text-slate-900 dark:text-slate-100">Menunggu pemindaian</p>
+                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Hasil validasi tiket akan muncul di sini.</p>
               </Card>
             )}
             {result?.kind === 'ok' && (
-              <Card className="border-emerald-200 bg-emerald-50 p-6">
-                <p className="flex items-center gap-2 text-sm font-semibold text-emerald-800">
+              <Card className="border-emerald-200 bg-emerald-50 p-6 dark:border-emerald-800/60 dark:bg-emerald-900/30">
+                <p className="flex items-center gap-2 text-sm font-semibold text-emerald-800 dark:text-emerald-300">
                   <CircleCheck className="size-5" aria-hidden /> Tiket valid · presensi tercatat
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                  <Avatar name={result.name} className="size-12 bg-white text-sm" />
+                  <Avatar name={result.name} className="size-12 bg-white text-sm dark:bg-slate-800" />
                   <div>
-                    <p className="font-semibold text-slate-900">{result.name}</p>
-                    <p className="text-sm text-slate-600">{result.nim} · {result.prodi}</p>
+                    <p className="font-semibold text-slate-900 dark:text-slate-100">{result.name}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">{result.nim} · {result.prodi}</p>
                   </div>
                 </div>
-                <dl className="mt-4 grid grid-cols-2 gap-3 rounded-xl bg-white p-3 text-xs">
-                  <div><dt className="text-slate-500">Kode tiket</dt><dd className="font-mono font-semibold text-slate-900">{result.code}</dd></div>
-                  <div><dt className="text-slate-500">Waktu check-in</dt><dd className="font-semibold text-slate-900">{result.time} WIB</dd></div>
+                <dl className="mt-4 grid grid-cols-2 gap-3 rounded-xl bg-white p-3 text-xs dark:bg-slate-800">
+                  <div><dt className="text-slate-500 dark:text-slate-400">Kode tiket</dt><dd className="font-mono font-semibold text-slate-900 dark:text-slate-100">{result.code}</dd></div>
+                  <div><dt className="text-slate-500 dark:text-slate-400">Waktu check-in</dt><dd className="font-semibold text-slate-900 dark:text-slate-100">{result.time} WIB</dd></div>
                 </dl>
               </Card>
             )}
             {result?.kind === 'dup' && (
-              <Card className="border-amber-200 bg-amber-50 p-6">
-                <p className="flex items-center gap-2 text-sm font-semibold text-amber-800">
+              <Card className="border-amber-200 bg-amber-50 p-6 dark:border-amber-800/60 dark:bg-amber-900/30">
+                <p className="flex items-center gap-2 text-sm font-semibold text-amber-800 dark:text-amber-300">
                   <CircleAlert className="size-5" aria-hidden /> Tiket sudah digunakan
                 </p>
-                <p className="mt-3 text-sm text-amber-900/80">
+                <p className="mt-3 text-sm text-amber-900/80 dark:text-amber-200/80">
                   <b>{result.name}</b> telah check-in pukul {result.time} WIB. Tidak perlu dipindai ulang.
                 </p>
-                <p className="mt-3 font-mono text-xs text-amber-900/70">{result.code}</p>
+                <p className="mt-3 font-mono text-xs text-amber-900/70 dark:text-amber-300/70">{result.code}</p>
               </Card>
             )}
             {result?.kind === 'invalid' && (
-              <Card className="border-rose-200 bg-rose-50 p-6">
-                <p className="flex items-center gap-2 text-sm font-semibold text-rose-800">
+              <Card className="border-rose-200 bg-rose-50 p-6 dark:border-rose-800/60 dark:bg-rose-900/30">
+                <p className="flex items-center gap-2 text-sm font-semibold text-rose-800 dark:text-rose-300">
                   <CircleX className="size-5" aria-hidden /> Tiket tidak valid untuk acara ini
                 </p>
-                <p className="mt-3 text-sm text-rose-900/80">Kode tidak terdaftar pada acara terpilih. Arahkan peserta ke meja bantuan.</p>
-                <p className="mt-3 font-mono text-xs text-rose-900/70">{result.code}</p>
+                <p className="mt-3 text-sm text-rose-900/80 dark:text-rose-200/80">Kode tidak terdaftar pada acara terpilih. Arahkan peserta ke meja bantuan.</p>
+                <p className="mt-3 font-mono text-xs text-rose-900/70 dark:text-rose-300/70">{result.code}</p>
               </Card>
             )}
           </div>
@@ -173,28 +173,28 @@ export function Scanner() {
           <Card className="p-6">
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-sm text-slate-500">Peserta hadir</p>
-                <p className="text-3xl font-bold tracking-tight text-slate-900">
+                <p className="text-sm text-slate-500 dark:text-slate-400">Peserta hadir</p>
+                <p className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
                   {count}<span className="text-base font-medium text-slate-400"> / 286</span>
                 </p>
               </div>
-              <p className="text-sm font-semibold text-emerald-700">{Math.round((count / 286) * 100)}%</p>
+              <p className="text-sm font-semibold text-emerald-700 dark:text-emerald-400">{Math.round((count / 286) * 100)}%</p>
             </div>
-            <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100">
+            <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
               <div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-lime-400 transition-all" style={{ width: `${(count / 286) * 100}%` }} />
             </div>
-            <p className="mt-3 text-xs text-slate-500">Setiap pindaian menggantikan 1 baris tanda tangan di daftar hadir kertas.</p>
+            <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">Setiap pindaian menggantikan 1 baris tanda tangan di daftar hadir kertas.</p>
           </Card>
 
           <Card className="p-6">
-            <p className="text-sm font-semibold text-slate-900">Riwayat pindai</p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Riwayat pindai</p>
             <ul className="mt-4 space-y-3">
               {log.map((l, idx) => (
                 <li key={`${l.name}-${idx}`} className="flex items-center gap-3">
-                  <span className="grid size-7 place-items-center rounded-full bg-emerald-100 text-emerald-700">
+                  <span className="grid size-7 place-items-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
                     <CircleCheck className="size-4" aria-hidden />
                   </span>
-                  <p className="min-w-0 flex-1 truncate text-sm text-slate-800">{l.name}</p>
+                  <p className="min-w-0 flex-1 truncate text-sm text-slate-800 dark:text-slate-200">{l.name}</p>
                   <span className="text-xs text-slate-400">{l.time}</span>
                 </li>
               ))}

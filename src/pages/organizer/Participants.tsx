@@ -68,7 +68,7 @@ export function Participants() {
       </div>
 
       <Card className="overflow-hidden">
-        <div className="flex flex-col gap-3 border-b border-slate-100 p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 border-b border-slate-100 p-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
           <div className="relative sm:w-80">
             <Search className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-slate-400" aria-hidden />
             <label htmlFor="cari-peserta" className="sr-only">Cari peserta</label>
@@ -88,7 +88,7 @@ export function Participants() {
 
         <div className="overflow-x-auto">
           <table className="w-full min-w-[820px] text-left text-sm">
-            <thead className="bg-slate-50 text-xs font-semibold tracking-wide text-slate-500 uppercase">
+            <thead className="bg-slate-50 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:bg-slate-800/60 dark:text-slate-400">
               <tr>
                 <th scope="col" className="w-10 px-4 py-3">
                   <input type="checkbox" checked={allPicked} onChange={toggleAll} aria-label="Pilih semua peserta" className="size-4 accent-emerald-600" />
@@ -101,9 +101,9 @@ export function Participants() {
                 <th scope="col" className="px-4 py-3">Sertifikat</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {list.map((p) => (
-                <tr key={p.id} className={cn('transition-colors hover:bg-slate-50/70', picked.has(p.id) && 'bg-emerald-50/50')}>
+                <tr key={p.id} className={cn('transition-colors hover:bg-slate-50/70 dark:hover:bg-slate-800/50', picked.has(p.id) && 'bg-emerald-50/50 dark:bg-emerald-900/20')}>
                   <td className="px-4 py-3">
                     <input type="checkbox" checked={picked.has(p.id)} onChange={() => toggle(p.id)} aria-label={`Pilih ${p.name}`} className="size-4 accent-emerald-600" />
                   </td>
@@ -111,27 +111,27 @@ export function Participants() {
                     <div className="flex items-center gap-3">
                       <Avatar name={p.name} />
                       <div className="min-w-0">
-                        <p className="font-medium text-slate-900">{p.name}</p>
-                        <p className="truncate text-xs text-slate-500">{p.email}</p>
+                        <p className="font-medium text-slate-900 dark:text-slate-100">{p.name}</p>
+                        <p className="truncate text-xs text-slate-500 dark:text-slate-400">{p.email}</p>
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3 font-mono text-xs text-slate-600">{p.nim}</td>
-                  <td className="px-4 py-3 text-slate-600">{p.prodi}</td>
+                  <td className="px-4 py-3 font-mono text-xs text-slate-600 dark:text-slate-400">{p.nim}</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{p.prodi}</td>
                   <td className="px-4 py-3">
                     <Badge tone={statusTone[p.status]}>
                       {p.status === 'Hadir' ? <CircleCheck className="size-3.5" aria-hidden /> : p.status === 'Batal' ? <UserX className="size-3.5" aria-hidden /> : null}
                       {p.status}
                     </Badge>
                   </td>
-                  <td className="px-4 py-3 text-slate-600">{p.checkIn ? `${p.checkIn} WIB` : '—'}</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{p.checkIn ? `${p.checkIn} WIB` : '—'}</td>
                   <td className="px-4 py-3">
                     {p.certificate === 'Terkirim' ? (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
                         <CircleCheck className="size-4" aria-hidden /> Terkirim
                       </span>
                     ) : p.certificate === 'Belum' ? (
-                      <button type="button" className="text-xs font-semibold text-emerald-700 hover:underline">Kirim</button>
+                      <button type="button" className="text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400">Kirim</button>
                     ) : (
                       <span className="text-slate-400">—</span>
                     )}
@@ -140,7 +140,7 @@ export function Participants() {
               ))}
               {list.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="px-4 py-12 text-center text-sm text-slate-500">
+                  <td colSpan={7} className="px-4 py-12 text-center text-sm text-slate-500 dark:text-slate-400">
                     Tidak ada peserta yang cocok dengan pencarian.
                   </td>
                 </tr>
@@ -148,14 +148,14 @@ export function Participants() {
             </tbody>
           </table>
         </div>
-        <div className="flex items-center justify-between border-t border-slate-100 px-4 py-3 text-xs text-slate-500">
+        <div className="flex items-center justify-between border-t border-slate-100 px-4 py-3 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
           <span>Menampilkan {list.length} dari 286 peserta</span>
           <div className="flex gap-1">
             {[1, 2, 3, '…', 21].map((n, i) => (
               <button
                 key={i}
                 type="button"
-                className={cn('grid size-8 place-items-center rounded-lg', n === 1 ? 'bg-emerald-950 font-semibold text-white' : 'hover:bg-slate-100')}
+                className={cn('grid size-8 place-items-center rounded-lg', n === 1 ? 'bg-emerald-950 font-semibold text-white' : 'hover:bg-slate-100 dark:hover:bg-slate-800')}
                 aria-current={n === 1 ? 'page' : undefined}
               >
                 {n}

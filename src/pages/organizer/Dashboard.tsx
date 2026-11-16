@@ -38,10 +38,10 @@ export function Dashboard() {
         <Card className="p-5 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <h2 className="font-semibold text-slate-900">Tren pendaftaran dan kehadiran</h2>
-              <p className="text-sm text-slate-500">8 minggu terakhir, semua acara</p>
+              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Tren pendaftaran dan kehadiran</h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400">8 minggu terakhir, semua acara</p>
             </div>
-            <div className="flex gap-4 text-xs text-slate-600">
+            <div className="flex gap-4 text-xs text-slate-600 dark:text-slate-400">
               <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-emerald-600" /> Pendaftar</span>
               <span className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-lime-400" /> Hadir</span>
             </div>
@@ -91,18 +91,18 @@ export function Dashboard() {
             </div>
           </div>
           <div className="flex-1 p-5">
-            <p className="text-xs font-semibold tracking-wider text-slate-400 uppercase">Check-in terbaru</p>
+            <p className="mt-3 text-xs font-semibold tracking-wider text-slate-400 uppercase">Check-in terbaru</p>
             <ul className="mt-3 space-y-3">
               {recentCheckins.map((c) => (
                 <li key={c.name} className="flex items-center gap-3">
                   <Avatar name={c.name} className="size-8" />
-                  <p className="min-w-0 flex-1 truncate text-sm font-medium text-slate-800">{c.name}</p>
+                  <p className="min-w-0 flex-1 truncate text-sm font-medium text-slate-800 dark:text-slate-200">{c.name}</p>
                   <span className="shrink-0 text-xs text-slate-400">{c.time}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <a href="#/panel/pindai" className="flex items-center justify-center gap-2 border-t border-slate-100 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-50">
+          <a href="#/panel/pindai" className="flex items-center justify-center gap-2 border-t border-slate-100 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 dark:border-slate-800 dark:text-emerald-400 dark:hover:bg-emerald-900/20">
             Buka pemindai presensi <ArrowRight className="size-4" aria-hidden />
           </a>
         </Card>
@@ -111,15 +111,15 @@ export function Dashboard() {
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
         <Card className="overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 sm:px-6">
-            <h2 className="font-semibold text-slate-900">Acara mendatang</h2>
-            <a href="#/panel/acara" className="text-sm font-semibold text-emerald-700 hover:text-emerald-800">Kelola semua</a>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Acara mendatang</h2>
+            <a href="#/panel/acara" className="text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300">Kelola semua</a>
           </div>
-          <ul className="divide-y divide-slate-100 border-t border-slate-100">
+          <ul className="divide-y divide-slate-100 border-t border-slate-100 dark:divide-slate-800 dark:border-slate-800">
             {upcoming.map((e) => (
               <li key={e.id} className="grid gap-3 px-5 py-4 sm:grid-cols-[1fr_180px_auto] sm:items-center sm:px-6">
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-slate-900">{e.title}</p>
-                  <p className="text-xs text-slate-500">{e.date} · {e.location}</p>
+                  <p className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100">{e.title}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{e.date} · {e.location}</p>
                 </div>
                 <div>
                   <div className="mb-1 flex justify-between text-xs text-slate-500">
