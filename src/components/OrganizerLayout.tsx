@@ -80,7 +80,7 @@ function SidebarContent({ path, onNavigate }: { path: string; onNavigate?: () =>
 export function OrganizerLayout({ path, children }: { path: string; children: ReactNode }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 bg-emerald-950 lg:block">
         <SidebarContent path={path} />
       </aside>
@@ -103,28 +103,28 @@ export function OrganizerLayout({ path, children }: { path: string; children: Re
       )}
 
       <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-slate-200/70 bg-white/85 px-4 backdrop-blur-lg sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-slate-200/70 bg-white/85 px-4 backdrop-blur-lg dark:border-slate-700/70 dark:bg-slate-900/85 sm:px-6 lg:px-8">
           <button
             type="button"
-            className="grid size-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-100 lg:hidden"
+            className="grid size-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 lg:hidden"
             onClick={() => setOpen(true)}
             aria-label="Buka menu"
           >
             <Menu className="size-5" />
           </button>
-          <p className="hidden text-sm text-slate-500 sm:block">
-            Semester Ganjil 2026/2027 · <span className="font-medium text-slate-700">{organizer.name}</span>
+          <p className="hidden text-sm text-slate-500 dark:text-slate-400 sm:block">
+            Semester Ganjil 2026/2027 · <span className="font-medium text-slate-700 dark:text-slate-200">{organizer.name}</span>
           </p>
           <div className="ml-auto flex items-center gap-2">
-            <button type="button" className="relative grid size-10 place-items-center rounded-lg text-slate-600 hover:bg-slate-100" aria-label="Notifikasi, 3 baru">
+            <button type="button" className="relative grid size-10 place-items-center rounded-lg text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" aria-label="Notifikasi, 3 baru">
               <Bell className="size-5" />
-              <span className="absolute top-2.5 right-2.5 size-2 rounded-full bg-lime-500 ring-2 ring-white" />
+              <span className="absolute top-2.5 right-2.5 size-2 rounded-full bg-lime-500 ring-2 ring-white dark:ring-slate-900" />
             </button>
-            <div className="flex items-center gap-2.5 rounded-full py-1 pr-3 pl-1 ring-1 ring-slate-200">
-              <span className="grid size-8 place-items-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800">{organizer.initials}</span>
+            <div className="flex items-center gap-2.5 rounded-full py-1 pr-3 pl-1 ring-1 ring-slate-200 dark:ring-slate-700">
+              <span className="grid size-8 place-items-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">{organizer.initials}</span>
               <div className="hidden leading-tight sm:block">
-                <p className="text-xs font-semibold text-slate-800">{organizer.admin}</p>
-                <p className="text-[11px] text-slate-500">{organizer.role}</p>
+                <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">{organizer.admin}</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">{organizer.role}</p>
               </div>
             </div>
           </div>

@@ -8,11 +8,11 @@ type Size = 'sm' | 'md' | 'lg'
 
 const variants: Record<Variant, string> = {
   primary: 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm shadow-emerald-900/10',
-  secondary: 'bg-white text-slate-800 ring-1 ring-inset ring-slate-200 hover:bg-slate-50 hover:ring-slate-300',
-  ghost: 'text-slate-700 hover:bg-slate-100',
+  secondary: 'bg-white text-slate-800 ring-1 ring-inset ring-slate-200 hover:bg-slate-50 hover:ring-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-700',
+  ghost: 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800',
   dark: 'bg-emerald-950 text-white hover:bg-emerald-900',
   lime: 'bg-lime-300 text-emerald-950 hover:bg-lime-200',
-  danger: 'bg-white text-rose-700 ring-1 ring-inset ring-rose-200 hover:bg-rose-50',
+  danger: 'bg-white text-rose-700 ring-1 ring-inset ring-rose-200 hover:bg-rose-50 dark:bg-slate-800 dark:text-rose-400 dark:ring-rose-800',
 }
 const sizes: Record<Size, string> = {
   sm: 'h-9 px-3.5 text-sm gap-1.5 rounded-lg',
@@ -60,19 +60,19 @@ export function ButtonLink({
 
 export function Card({ className, children }: { className?: string; children: ReactNode }) {
   return (
-    <div className={cn('rounded-2xl border border-slate-200/80 bg-white shadow-soft', className)}>{children}</div>
+    <div className={cn('rounded-2xl border border-slate-200/80 bg-white shadow-soft dark:border-slate-700/80 dark:bg-slate-900', className)}>{children}</div>
   )
 }
 
 type Tone = 'emerald' | 'lime' | 'teal' | 'amber' | 'rose' | 'slate' | 'sky'
 const tones: Record<Tone, string> = {
-  emerald: 'bg-emerald-50 text-emerald-700 ring-emerald-600/15',
-  lime: 'bg-lime-100 text-lime-800 ring-lime-600/20',
-  teal: 'bg-teal-50 text-teal-700 ring-teal-600/15',
-  amber: 'bg-amber-50 text-amber-700 ring-amber-600/20',
-  rose: 'bg-rose-50 text-rose-700 ring-rose-600/15',
-  slate: 'bg-slate-100 text-slate-600 ring-slate-500/15',
-  sky: 'bg-sky-50 text-sky-700 ring-sky-600/15',
+  emerald: 'bg-emerald-50 text-emerald-700 ring-emerald-600/15 dark:bg-emerald-900/30 dark:text-emerald-300 dark:ring-emerald-500/20',
+  lime: 'bg-lime-100 text-lime-800 ring-lime-600/20 dark:bg-lime-900/30 dark:text-lime-300 dark:ring-lime-500/20',
+  teal: 'bg-teal-50 text-teal-700 ring-teal-600/15 dark:bg-teal-900/30 dark:text-teal-300 dark:ring-teal-500/20',
+  amber: 'bg-amber-50 text-amber-700 ring-amber-600/20 dark:bg-amber-900/30 dark:text-amber-300 dark:ring-amber-500/20',
+  rose: 'bg-rose-50 text-rose-700 ring-rose-600/15 dark:bg-rose-900/30 dark:text-rose-300 dark:ring-rose-500/20',
+  slate: 'bg-slate-100 text-slate-600 ring-slate-500/15 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-500/20',
+  sky: 'bg-sky-50 text-sky-700 ring-sky-600/15 dark:bg-sky-900/30 dark:text-sky-300 dark:ring-sky-500/20',
 }
 
 export function Badge({ tone = 'emerald', className, children }: { tone?: Tone; className?: string; children: ReactNode }) {
@@ -119,7 +119,7 @@ export function Progress({ value, max, className, tone = 'emerald' }: { value: n
   const color = tone === 'amber' ? 'bg-amber-500' : tone === 'lime' ? 'bg-lime-400' : 'bg-emerald-500'
   return (
     <div
-      className={cn('h-1.5 w-full overflow-hidden rounded-full bg-slate-100', className)}
+      className={cn('h-1.5 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800', className)}
       role="progressbar"
       aria-valuenow={pct}
       aria-valuemin={0}
@@ -132,7 +132,7 @@ export function Progress({ value, max, className, tone = 'emerald' }: { value: n
 
 export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <p className={cn('inline-flex items-center gap-2 text-xs font-bold tracking-[0.14em] text-emerald-700 uppercase', className)}>
+    <p className={cn('inline-flex items-center gap-2 text-xs font-bold tracking-[0.14em] text-emerald-700 dark:text-emerald-400 uppercase', className)}>
       <span className="h-px w-5 bg-emerald-500" aria-hidden />
       {children}
     </p>
@@ -170,12 +170,12 @@ export function StatCard({
         </span>
         {trend && <Badge tone="emerald">{trend}</Badge>}
       </div>
-      <p className="mt-4 text-sm text-slate-500">{label}</p>
-      <p className="mt-1 text-2xl font-bold tracking-tight text-slate-900">
+      <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">{label}</p>
+      <p className="mt-1 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
         {value}
-        {unit && <span className="ml-1 text-sm font-semibold text-slate-500">{unit}</span>}
+        {unit && <span className="ml-1 text-sm font-semibold text-slate-500 dark:text-slate-400">{unit}</span>}
       </p>
-      {hint && <p className="mt-1 text-xs text-slate-500">{hint}</p>}
+      {hint && <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{hint}</p>}
     </Card>
   )
 }
@@ -195,8 +195,8 @@ export function PageHeader({
     <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div>
         {eyebrow && <Eyebrow className="mb-2">{eyebrow}</Eyebrow>}
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-[28px]">{title}</h1>
-        {description && <p className="mt-1.5 max-w-2xl text-sm text-slate-500">{description}</p>}
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-[28px]">{title}</h1>
+        {description && <p className="mt-1.5 max-w-2xl text-sm text-slate-500 dark:text-slate-400">{description}</p>}
       </div>
       {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
     </div>
@@ -205,14 +205,14 @@ export function PageHeader({
 
 export function Label({ htmlFor, children }: { htmlFor: string; children: ReactNode }) {
   return (
-    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-slate-700">
+    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
       {children}
     </label>
   )
 }
 
 const fieldBase =
-  'block w-full rounded-xl border-0 bg-white px-3.5 text-sm text-slate-900 ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-500 focus:outline-none'
+  'block w-full rounded-xl border-0 bg-white px-3.5 text-sm text-slate-900 ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-500 focus:outline-none dark:bg-slate-800 dark:text-slate-100 dark:ring-slate-700 dark:placeholder:text-slate-500'
 
 export function Input({ className, ...rest }: InputHTMLAttributes<HTMLInputElement>) {
   return <input className={cn(fieldBase, 'h-11', className)} {...rest} />
@@ -270,7 +270,7 @@ export function Segmented<T extends string>({
   className?: string
 }) {
   return (
-    <div role="tablist" aria-label={label} className={cn('inline-flex rounded-xl bg-slate-100 p-1', className)}>
+    <div role="tablist" aria-label={label} className={cn('inline-flex rounded-xl bg-slate-100 p-1 dark:bg-slate-800', className)}>
       {options.map((o) => (
         <button
           key={o}
@@ -280,7 +280,9 @@ export function Segmented<T extends string>({
           onClick={() => onChange(o)}
           className={cn(
             'rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors',
-            value === o ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800',
+            value === o
+              ? 'bg-white text-slate-900 shadow-sm dark:bg-slate-700 dark:text-slate-100'
+              : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200',
           )}
         >
           {o}
